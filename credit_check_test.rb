@@ -16,7 +16,7 @@ class CreditCheckTest < Minitest::Test
   def test_a_muliply_every_second_digit
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
-    result = CreditCehck.new.validate(input)
+    result = CreditCheck.new.validate(input)
 
     assert_equal result, expected
   end
