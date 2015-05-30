@@ -17,7 +17,9 @@ class CreditCheckTest < Minitest::Test
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
 
-    result = CreditCheck.new.validate(input)
+    credit_check = CreditCheck.new
+
+    result = credit_check.multiply_every_second_digit_by_two(input)
 
     assert_equal result, expected
   end
@@ -25,7 +27,7 @@ class CreditCheckTest < Minitest::Test
   def test_sum_digits_over_10
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = [1, 4, 3, 8, 5, 3, 7, 7, 9, 2]
-    
+
     result = CreditCheck.new.validate(input)
 
     assert_equal result, expected

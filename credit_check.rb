@@ -1,23 +1,34 @@
 class CreditCheck
+
+
   def validate(number)
-    mutiplied_by_two = []
+    mutiplied_by_two = multiply_every_second_digit_by_two(number)
+
+    sum_digits_over_10 = sum_two_character_digits(mutiplied_by_two)
+
+    sum_digits_over_10
+  end
+
+  def multiply_every_second_digit_by_two(number)
+    multiplied_by_two = []
     number.each_with_index do |num, index|
       if index.even?
-        mutiplied_by_two << num
+        multiplied_by_two << num
       else
-        mutiplied_by_two << num * 2
+        multiplied_by_two << num * 2
       end
     end
+    multiplied_by_two
+  end
 
-    sum_digits_over_10 = mutiplied_by_two.map do |num|
+  def sum_two_character_digits(mutiplied_by_two)
+    mutiplied_by_two.map do |num|
       if num > 9
-        puts "num [#{num}]"
-        puts "n1 + n2 *********************************[#{num.to_s[0].to_i + num.to_s[1].to_i}]"
         (num.to_s[0].to_i + num.to_s[1].to_i)
       else
         num
       end
     end
-    sum_digits_over_10
   end
+
 end
