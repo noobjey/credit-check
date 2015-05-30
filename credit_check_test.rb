@@ -4,7 +4,8 @@
 # 2x every other digit:  7   18  9   4   7   6   9   16  7   2   x
 # Summed digits over 10: 7   9   9   4   7   6   9   7   7   2   x
 # Results summed:        7   9   9   4   7   6   9   7   7   2` = 67
-
+# Divide by 10 to determine validity
+# Read card number from right to left
 
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
