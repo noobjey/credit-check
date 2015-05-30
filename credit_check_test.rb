@@ -14,6 +14,7 @@ require_relative 'credit_check'
 
 class CreditCheckTest < Minitest::Test
   def test_muliply_every_second_digit
+    # skip
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
 
@@ -25,6 +26,7 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_sum_digits_over_10
+    # skip
     input = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
     expected = [1, 4, 3, 8, 5, 3, 7, 7, 9, 2]
 
@@ -35,6 +37,7 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_digits_summed
+    # skip
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = 46
 
@@ -45,6 +48,7 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_valid_credit_checksum
+    # skip
     input = 70
     expected = true
 
@@ -55,6 +59,7 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_convert_array
+    #skip
     card_number = 5541808923795240
     expected = [5, 5, 4, 1, 8, 0, 8, 9, 2, 3, 7, 9, 5, 2, 4, 0]
 
@@ -65,14 +70,14 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_valid_card
-    skip
-    card_number = 5541808923795240
+    # skip
+    card_number = 79927398713
     expected = true
 
     credit_check = CreditCheck.new
 
     result = credit_check.validate(card_number)
-    assert_equal result, expected
+    assert_equal expected, result
   end
 end
 

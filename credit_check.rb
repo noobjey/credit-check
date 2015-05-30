@@ -1,13 +1,17 @@
 class CreditCheck
 
 
-  def validate(card_number)
+  def validate(input)
 
-    mutiplied_by_two = multiply_every_second_digit_by_two(card_number.to_s.chars)
+    card_number = prepare(input)
+
+    mutiplied_by_two = multiply_every_second_digit_by_two(card_number)
 
     summed_digits_over_ten = sum_two_character_digits(mutiplied_by_two)
 
-    summed_digits_over_ten
+    checksum = sum_digits(summed_digits_over_ten)
+
+    validate_checksum(checksum)
   end
 
   def prepare(card_number)
@@ -44,6 +48,7 @@ class CreditCheck
   end
 
   def validate_checksum(number)
+    puts "*********** #{number} ************* #{number % 10 == 0} ***************"
     number % 10 == 0
   end
 
