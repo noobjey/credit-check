@@ -1,4 +1,4 @@
-Challenge: Credit Check
+#Challenge: Credit Check
 
 https://github.com/turingschool/challenges/blob/master/credit_check.markdown
 
