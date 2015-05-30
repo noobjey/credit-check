@@ -35,4 +35,8 @@ class CreditCheck
     numbers.reduce :+
   end
 
+  def validate_checksum(number)
+    number % 10 == 0
+  end
+
 end

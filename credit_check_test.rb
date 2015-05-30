@@ -31,18 +31,26 @@ class CreditCheckTest < Minitest::Test
     credit_check = CreditCheck.new
 
     result = credit_check.sum_two_character_digits(input)
-
     assert_equal result, expected
   end
 
   def test_digits_summed
-    # skip
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = 46
 
     credit_check = CreditCheck.new
 
     result = credit_check.sum_digits(input)
+    assert_equal result, expected
+  end
+
+  def test_valid_credit_checksum
+    input = 70
+    expected = true
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.validate_checksum(input)
     assert_equal result, expected
   end
 end
