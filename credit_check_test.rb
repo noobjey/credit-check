@@ -36,12 +36,13 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_digits_summed
-    skip
+    # skip
     input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = 46
 
-    result = CreditCheck.new.validate(input)
+    credit_check = CreditCheck.new
 
+    result = credit_check.sum_digits(input)
     assert_equal result, expected
   end
 end

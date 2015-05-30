@@ -9,9 +9,9 @@ class CreditCheck
     sum_digits_over_10
   end
 
-  def multiply_every_second_digit_by_two(number)
+  def multiply_every_second_digit_by_two(numbers)
     multiplied_by_two = []
-    number.each_with_index do |num, index|
+    numbers.each_with_index do |num, index|
       if index.even?
         multiplied_by_two << num
       else
@@ -21,14 +21,18 @@ class CreditCheck
     multiplied_by_two
   end
 
-  def sum_two_character_digits(mutiplied_by_two)
-    mutiplied_by_two.map do |num|
+  def sum_two_character_digits(numbers)
+    numbers.map do |num|
       if num > 9
         (num.to_s[0].to_i + num.to_s[1].to_i)
       else
         num
       end
     end
+  end
+
+  def sum_digits(numbers)
+    numbers.reduce :+
   end
 
 end
