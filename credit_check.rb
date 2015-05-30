@@ -1,6 +1,6 @@
 class CreditCheck
 
-
+  # validate credit card number using Luhn Algorithm
   def validate(input)
 
     card_number = prepare(input)
@@ -16,6 +16,9 @@ class CreditCheck
 
   def prepare(card_number)
     converted_to_array = card_number.to_s.chars
+
+    converted_to_array.reverse!
+
     converted_to_array.map do |string|
       string.to_i
     end

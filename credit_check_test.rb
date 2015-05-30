@@ -22,7 +22,7 @@ class CreditCheckTest < Minitest::Test
 
     result = credit_check.multiply_every_second_digit_by_two(input)
 
-    assert_equal result, expected
+    assert_equal expected, result
   end
 
   def test_sum_digits_over_10
@@ -33,7 +33,7 @@ class CreditCheckTest < Minitest::Test
     credit_check = CreditCheck.new
 
     result = credit_check.sum_two_character_digits(input)
-    assert_equal result, expected
+    assert_equal expected, result
   end
 
   def test_digits_summed
@@ -44,7 +44,7 @@ class CreditCheckTest < Minitest::Test
     credit_check = CreditCheck.new
 
     result = credit_check.sum_digits(input)
-    assert_equal result, expected
+    assert_equal expected, result
   end
 
   def test_valid_credit_checksum
@@ -55,23 +55,35 @@ class CreditCheckTest < Minitest::Test
     credit_check = CreditCheck.new
 
     result = credit_check.validate_checksum(input)
-    assert_equal result, expected
+    assert_equal expected, result
   end
 
-  def test_convert_array
+  def test_prepare_returns_an_array_of_integers
     #skip
     card_number = 5541808923795240
-    expected = [5, 5, 4, 1, 8, 0, 8, 9, 2, 3, 7, 9, 5, 2, 4, 0]
+    expected = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
 
     credit_check = CreditCheck.new
 
     result = credit_check.prepare(card_number)
-    assert_equal result, expected
+    assert_equal expected.class, result.class
+    assert_equal expected[0].class, result[0].class
+  end
+
+  def test_prepare_sets_up_right_to_left_parsing
+    #skip
+    card_number = 5541808923795240
+    expected = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.prepare(card_number)
+    assert_equal expected, result
   end
 
   def test_valid_card
     # skip
-    card_number = 79927398713
+    card_number = 6011797668867828
     expected = true
 
     credit_check = CreditCheck.new
