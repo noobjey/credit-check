@@ -79,5 +79,16 @@ class CreditCheckTest < Minitest::Test
     result = credit_check.validate(card_number)
     assert_equal expected, result
   end
+
+  def test_invalid_card
+    # skip
+    card_number = 6011797668868728
+    expected = false
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.validate(card_number)
+    assert_equal expected, result
+  end
 end
 

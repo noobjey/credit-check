@@ -48,7 +48,6 @@ class CreditCheck
   end
 
   def validate_checksum(number)
-    puts "*********** #{number} ************* #{number % 10 == 0} ***************"
     number % 10 == 0
   end
 
