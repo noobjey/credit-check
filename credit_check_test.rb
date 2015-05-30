@@ -53,5 +53,26 @@ class CreditCheckTest < Minitest::Test
     result = credit_check.validate_checksum(input)
     assert_equal result, expected
   end
+
+  def test_convert_array
+    card_number = 5541808923795240
+    expected = [5, 5, 4, 1, 8, 0, 8, 9, 2, 3, 7, 9, 5, 2, 4, 0]
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.prepare(card_number)
+    assert_equal result, expected
+  end
+
+  def test_valid_card
+    skip
+    card_number = 5541808923795240
+    expected = true
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.validate(card_number)
+    assert_equal result, expected
+  end
 end
 

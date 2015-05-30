@@ -1,12 +1,20 @@
 class CreditCheck
 
 
-  def validate(number)
-    mutiplied_by_two = multiply_every_second_digit_by_two(number)
+  def validate(card_number)
 
-    sum_digits_over_10 = sum_two_character_digits(mutiplied_by_two)
+    mutiplied_by_two = multiply_every_second_digit_by_two(card_number.to_s.chars)
 
-    sum_digits_over_10
+    summed_digits_over_ten = sum_two_character_digits(mutiplied_by_two)
+
+    summed_digits_over_ten
+  end
+
+  def prepare(card_number)
+    converted_to_array = card_number.to_s.chars
+    converted_to_array.map do |string|
+      string.to_i
+    end
   end
 
   def multiply_every_second_digit_by_two(numbers)
