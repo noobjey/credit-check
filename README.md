@@ -4,12 +4,15 @@ https://github.com/turingschool/challenges/blob/master/credit_check.markdown
 
 Write a program that can detect mistakes in a credit card number using the Luhn Algorithm
 
+American Express numbers? 342804633855673 is valid but 342801633855673 is invalid.
+
 to run test:
 ruby run_it.rb
 
 
 Acceptance Test
 card_number = "4929735477250543"
+american_express = "342804633855673"
 
 valid = false
 

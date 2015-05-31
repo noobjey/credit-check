@@ -16,7 +16,7 @@ require_relative 'credit_check'
 class CreditCheckTest < Minitest::Test
   def test_muliply_every_second_digit
     # skip
-    input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+    input    = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
 
     credit_check = CreditCheck.new
@@ -28,7 +28,7 @@ class CreditCheckTest < Minitest::Test
 
   def test_sum_digits_over_10
     # skip
-    input = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
+    input    = [1, 4, 3, 8, 5, 12, 7, 16, 9, 2]
     expected = [1, 4, 3, 8, 5, 3, 7, 7, 9, 2]
 
     credit_check = CreditCheck.new
@@ -39,7 +39,7 @@ class CreditCheckTest < Minitest::Test
 
   def test_digits_summed
     # skip
-    input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+    input    = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
     expected = 46
 
     credit_check = CreditCheck.new
@@ -50,7 +50,7 @@ class CreditCheckTest < Minitest::Test
 
   def test_valid_credit_checksum
     # skip
-    input = 70
+    input    = 70
     expected = true
 
     credit_check = CreditCheck.new
@@ -62,7 +62,7 @@ class CreditCheckTest < Minitest::Test
   def test_prepare_returns_an_array_of_integers
     #skip
     card_number = 5541808923795240
-    expected = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
+    expected    = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
 
     credit_check = CreditCheck.new
 
@@ -74,7 +74,7 @@ class CreditCheckTest < Minitest::Test
   def test_prepare_sets_up_right_to_left_parsing
     #skip
     card_number = 5541808923795240
-    expected = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
+    expected    = [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5]
 
     credit_check = CreditCheck.new
 
@@ -85,7 +85,7 @@ class CreditCheckTest < Minitest::Test
   def test_valid_card
     # skip
     card_number = 6011797668867828
-    expected = true
+    expected    = true
 
     credit_check = CreditCheck.new
 
@@ -96,11 +96,33 @@ class CreditCheckTest < Minitest::Test
   def test_invalid_card
     # skip
     card_number = 6011797668868728
-    expected = false
+    expected    = false
 
     credit_check = CreditCheck.new
 
     result = credit_check.validate(card_number)
+    assert_equal expected, result # skip
+  end
+
+  def test_valid_American_Express
+    # skip
+    american_express = 342804633855673
+    expected         = true
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.validate(american_express)
+    assert_equal expected, result
+  end
+
+  def test_invalid_American_Express
+    # skip
+    american_express = 342801633855673
+    expected         = false
+
+    credit_check = CreditCheck.new
+
+    result = credit_check.validate(american_express)
     assert_equal expected, result
   end
 end

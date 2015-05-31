@@ -17,6 +17,9 @@ class CreditCheck
   def prepare(card_number)
     converted_to_array = card_number.to_s.chars
 
+    # reverse sets algrithm up to run right to left
+    # reverse also saves the checknum from being doubled
+    #   http://www.freeformatter.com/credit-card-number-generator-validator.html
     converted_to_array.reverse!
 
     converted_to_array.map do |string|
